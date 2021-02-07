@@ -1,125 +1,123 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const InfoContainer = styled.div`
-    color: #fff;
-    background: ${({ligthBg}) => (ligthBg ? '#f9f9f9': '#010606')};
-    @media screen and (max-width: 768px) {
-        padding: 100px 0;
-    }
-`
+  color: #fff;
+  background: ${({ ligthBg }) => (ligthBg ? "#f9f9f9" : "#010606")};
+  @media screen and (max-width: 768px) {
+    padding: 100px 0;
+  }
+`;
 export const InfoWrapper = styled.div`
-   
-    z-index: 1;
-    height: 860px;
-    widht: 100%;
-    max-witdh: 1100px;
-    margin: auto;
-    padding: 40px 40px;
-    justify-content: center;
-    @media screen and (max-width: 766px) {  
-        margin-top: -60px;
-    }
-
-`
+  z-index: 1;
+  height: 820px;
+  widht: 100%;
+  max-witdh: 1100px;
+  margin: auto;
+  padding: 100px 40px;
+  justify-content: center;
+  @media screen and (max-width: 766px) {
+    margin-top: -60px;
+  }
+  @media screen and (max-height: 490px) {
+    height: 700px;
+  }
+`;
 export const InfoRow = styled.div`
-   :afrer{
-    
+  :afrer {
     content: "";
     display: table;
     clear: both;
-   }
-    /*display: grid;
+  }
+  /*display: grid;
     grid-auto-columns: minmax(auto, 1fr);
     align-items: center;
-    grid-template-areas: ${({imgStart}) => (imgStart ? `'col2 col1'`: `'col1 col2'`)};
+    grid-template-areas: ${({ imgStart }) =>
+    imgStart ? `'col2 col1'` : `'col1 col2'`};
     @media screen and (max-width: 768px) {
-        grid-template-areas: ${({imgStart}) => (imgStart ? `'col1' 'col2'` : `'col1 col1' 'col2 col2'`)}
+        grid-template-areas: ${({ imgStart }) =>
+    imgStart ? `'col1' 'col2'` : `'col1 col1' 'col2 col2'`}
     }*/
-`
+`;
 export const Column1 = styled.div`
-    
-    float: ${({imgStart}) => (imgStart ? 'right': 'left')};
-    width: 50%;
-    padding: 10px;
-    height: 300px;
-    
-    @media screen and (max-width: 700px) {  
-        width: 100%;
-    }
+  float: ${({ imgStart }) => (imgStart ? "right" : "left")};
+  width: 50%;
+  padding: 10px;
+  height: 300px;
+  margin-bottom: 20px;
+  @media screen and (max-width: 700px) {
+    width: 100%;
+  }
 
-    
-   /* margin-bottom: 15px;
+  /* margin-bottom: 15px;
     padding: 0 15px;
     grid-area: cal1;*/
-`
+`;
 export const Column2 = styled.div`
-   
-    float: left;
-    width: 50%;
-    padding: 10px;
-    height: 300px;
-   
-    @media screen and (max-width: 700px) {  
-        margin-top: 25px;
-        width: 100%;
-    }
-    @media screen and (max-width: 300px) {
-        display: none;
-    }
-    /*
+  float: left;
+  width: 50%;
+  padding: 10px;
+  height: 300px;
+
+  @media screen and (max-width: 700px) {
+    margin-top: 25px;
+    width: 100%;
+  }
+
+  /*
     margin-bottom: 15px;
     padding: 0 15px;
     grid-area: cal1;*/
-`
+`;
 
 export const TextWrapper = styled.div`
-   
-    max-width: 540px;
-    padding-top: 0;
-    padding-bottom: 60px;
-`
+  max-width: 540px;
+  padding-top: 0;
+  padding-bottom: 60px;
+`;
 export const TopLine = styled.p`
-    color: #01bf71;
-    font-size: 16px;
-    line-height: 16px;
-    font-weight: 700;
-    letter-spacing: 1.4px;
-    text-transfrom: uppercase;
-    margin-bottom: 16px;
-`
+  color: #01bf71;
+  font-size: 16px;
+  line-height: 16px;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+  text-transfrom: uppercase;
+  margin-bottom: 16px;
+`;
 export const Heading = styled.h1`
-    
-    margin-bottom: 24px;
-    font-size:48px;
-    line-height: 1.1;
-    font-weight: 600;
-    color: ${({lightText}) => (lightText ? '#f7f8fa': '#010606')};
+  margin-bottom: 24px;
+  font-size: 48px;
+  line-height: 1.1;
+  font-weight: 600;
+  color: ${({ lightText }) => (lightText ? "#f7f8fa" : "#010606")};
 
-    @media screen and (max-width: 480px) {
-        font-size: 32px;
-    }
-
-`
+  @media screen and (max-width: 480px) {
+    font-size: 32px;
+  }
+  @media screen and (max-height: 490px) {
+    font-size: 24px;
+  }
+`;
 export const Subtitle = styled.p`
-    max-width: 440px;
-    margin-bottom: 35px;
-    font-size: 18px;
-    line-height: 24px;
-    color: ${({darkText}) => (darkText ? '#010606': '#fff')};
-
-`
+  max-width: 440px;
+  margin-bottom: 35px;
+  font-size: 18px;
+  line-height: 24px;
+  color: ${({ darkText }) => (darkText ? "#010606" : "#fff")};
+  @media screen and (max-height: 490px) {
+    font-size: 14px;
+  }
+`;
 
 export const BtnWrap = styled.div`
-    display: flex;
-    justify-content: flex-start;
-
-`
+  display: flex;
+  justify-content: flex-start;
+`;
 export const ImgWrap = styled.div`
-    max-width: 555px;
-    height: 100%;
-`
+  max-width: 555px;
+  height: 100%;
+`;
 export const Img = styled.img`
-    width: 100%;
-    margin: 0 0 10px 0;
-    padding-right: 0;
-`
+  width: 100%;
+  margin: 0 0 10px 0;
+  padding-right: 0;
+`;
