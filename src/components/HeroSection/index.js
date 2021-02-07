@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import Video from '../../videos/testpage.jpg'
+
 import {Button} from '../ButtonElement';
 import { HeroContainer, HeroBg, VideoBg, HeroContent, HeroH1, HeroP, HeroBtnWrapper, ArrowForward, ArrowRight} from './HeroElements';
 const HeroElements = () => {
@@ -13,18 +13,16 @@ const HeroElements = () => {
     return (
         <HeroContainer>
             <HeroBg>
-            
-                <img src={Video}></img>
+           
+            <VideoBg />
             </HeroBg>
             <HeroContent>
-                <HeroH1>
-                    Uzman Kadromuzla  
-                </HeroH1>
+                <HeroH1>Uzman Kadromuzla</HeroH1>
                 <HeroP>
                     Hayallerinizi gerçekleştirelim
                 </HeroP>
                 <HeroBtnWrapper>
-                    <Button to="signup"
+                    <Button to="services"
                     onMouseEnter={onHover}
                     onMouseLeave={onHover}
                     primary='true'

@@ -7,7 +7,7 @@ export const HeroContainer = styled.div`
     justify-content: center;
     align-items: center;
     padding: 0 30px;
-    height: 800px;
+    height: 700px;
     position: relative;
     z-index: 1;
     :before {
@@ -58,7 +58,9 @@ export const HeroH1 = styled.h1`
     @media screen and(max-width: 480px) {
         font-size: 32px;
     }
-
+    @media screen and(max-width: 300px) {
+        font-size: 10px;
+    }
 `
 export const HeroP = styled.p`
     margin-top: 24px;
@@ -71,6 +73,9 @@ export const HeroP = styled.p`
     }
     @media screen and (max-width: 480px) {
         font-size: 18px;
+    }
+    @media screen and (max-width: 300px) {
+        font-size: 14px;
     }
 `
 export const HeroBtnWrapper = styled.div`

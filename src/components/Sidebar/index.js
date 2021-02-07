@@ -11,21 +11,21 @@ const Sidebar = ({isOpen,toggle}) => {
             </Icon>
             <SidebarWrapper>
                 <SidebarMenu>
-                    <SidebarLink to='about' onClick={toggle}>
+                    <SidebarLink to="about" onClick={toggle}>
                             Hakkında
                     </SidebarLink>
-                    <SidebarLink to='discover' onClick={toggle}>
+                    <SidebarLink to="discover" onClick={toggle}>
                             Kesfet
                     </SidebarLink>
-                    <SidebarLink to='services' onClick={toggle}>
+                    <SidebarLink to="services" onClick={toggle}>
                             Hizmetler
                     </SidebarLink>
-                    <SidebarLink to='signup' onClick={toggle}>
-                            Kayıt Ol
+                    <SidebarLink to="signup" onClick={toggle}>
+                            Kayıt 
                     </SidebarLink>
                 </SidebarMenu>
                 <SideBtnWrap>
-                    <SidebarRoute to="/signin">Giriş Yap</SidebarRoute>
+                    <SidebarRoute to='/signin'>Giriş Yap</SidebarRoute>
                 </SideBtnWrap>
             </SidebarWrapper>
         </SidebarContainer>

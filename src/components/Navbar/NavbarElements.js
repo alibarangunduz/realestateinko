@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import{ Link as LinkR} from 'react-router-dom'
-import{ Link as LinkS} from 'react-router-dom'
+import{ Link as LinkS} from 'react-scroll'
 
 export const Nav = styled.nav`
  background: #000;
@@ -77,7 +77,7 @@ export const NavLinks = styled(LinkS)`
     height: 100%;
     cursor: pointer;
 
-    &.active {
+    &:active {
         border-buttom: 3px solid #01bf71;
     }
 

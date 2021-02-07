@@ -22,7 +22,7 @@ const Navbar = ({toggle}) => {
                             </NavLinks>
                         </NavItem>
                         <NavItem>
-                            <NavLinks to="services">
+                        <NavLinks to="services">
                                 Hizmetler
                             </NavLinks>
                         </NavItem>
