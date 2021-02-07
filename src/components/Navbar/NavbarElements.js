@@ -69,10 +69,6 @@ export const NavMenu = styled.ul`
 
 export const NavItem = styled.li`
   height: 80px;
-  &:hover {
-    transform: scale(1.02);
-    transition: all 0.2s ease-in-out;
-  }
 `;
 
 export const NavLinks = styled(LinkS)`

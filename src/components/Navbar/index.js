@@ -29,10 +29,11 @@ const Navbar = ({ toggle }) => {
   const toggleHome = () => {
     scroll.scrollToTop();
   };
+
   return (
     <>
       <IconContext.Provider value={{ color: "#fff" }}>
-        <Nav style={{ background: scrollNav ? "#000" : "#2F4F4F" }}>
+        <Nav style={{ background: scrollNav ? "#000" : "#1a1a1a" }}>
           <NavbarContainer>
             <NavLogo to="/" onClick={toggleHome}>
               İNKO AŞ
