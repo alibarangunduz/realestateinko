@@ -1,9 +1,29 @@
-import React from 'react'
+import React, { useState, useEffect, useContext } from "react";
 import { SidebarContainer, CloseIcon, Icon, SidebarWrapper, SidebarMenu, SidebarLink, SideBtnWrap, SidebarRoute } from './SidebarElements'
-
+import fire from '../../fire';
+import { UserContext } from '../../UserContext';
 
 
 const Sidebar = ({isOpen,toggle}) => {
+    
+    const {user, setUser} = useContext(UserContext);
+    const handleLogout = () => {
+        fire.auth().signOut();
+      }
+    const authListener = () => {
+        fire.auth().onAuthStateChanged(user => {
+          if(user) {
+            setUser(user);
+          } else {
+            setUser('');
+          }
+        })
+      }
+      useEffect(() => {
+        authListener();
+        console.log(user);
+      }, [])
+    
     return (
         <SidebarContainer isOpen={isOpen} onClick={toggle}>
             <Icon onClick={toggle}>
@@ -24,8 +44,10 @@ const Sidebar = ({isOpen,toggle}) => {
                             Kayıt 
                     </SidebarLink>
                 </SidebarMenu>
-                <SideBtnWrap>
+                <SideBtnWrap>{ user ? 
+                    <SidebarRoute to='/' onClick={handleLogout}>Çıkış Yap</SidebarRoute>:
                     <SidebarRoute to='/signin'>Giriş Yap</SidebarRoute>
+                    }
                 </SideBtnWrap>
             </SidebarWrapper>
         </SidebarContainer>

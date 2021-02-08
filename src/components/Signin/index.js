@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect, useContext } from "react";
+import fire from '../../fire';
 import {
   Container,
   FormWrap,
@@ -12,25 +13,141 @@ import {
   Text,
 } from "./SigninElements";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
+import { useHistory } from "react-router-dom";
+import { UserContext } from '../../UserContext';
+
+
 const SignIn = () => {
+
+  const {user, setUser} = useContext(UserContext);
+  const [userName, setUserName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState();
+  const [emailError, setEmailError] = useState('');
+  const [passwordError, setPasswordError] = useState('');
+  const [hasAccount, setHesAccount] = useState(true);
+  const history = useHistory();
+
+
+  const clearErrors = () => {
+    setEmailError('');
+    setPasswordError('');
+  } 
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+
+    fire
+      .auth().signInWithEmailAndPassword(email, password).then((auth) => {
+          
+          if(auth) {
+            setUser(auth);
+            history.push('/');
+          }
+        }).catch(err => {
+            switch(err.code) {
+              case "auth/invaild-email":
+              case "auth/user-disabled":
+              case "auth/user-not-found":
+              setEmailError(err.message);
+              break;
+              case "auth/wrong-password":
+                setPasswordError(err.message);
+                break;
+            } 
+          });
+  }
+  const handleSignup = (e) => {
+    e.preventDefault();
+    clearErrors();
+    fire
+      .auth()
+        .createUserWithEmailAndPassword(email, password).then((res) =>{
+          console.log(res);
+          if(res) {
+            setUser(res);
+            history.push('/');
+          }
+        }).catch(err => {
+            switch(err.code) {
+              case "auth/email-already-in-use":
+              case "auth/invalid-email":
+              setEmailError(err.message);
+              break;
+              case "auth/weak-password":
+                setPasswordError(err.message);
+                break;
+            } 
+          });
+  }
+
+  useEffect(() => {
+    fire.auth().signOut();
+  }, [])
+  
+ 
+ 
   return (
     <Container>
-      <FormWrap>
+      <FormWrap hasAccount={hasAccount}>
         <Icon to="/">
           <ArrowBackIcon fontSize="large" />
         </Icon>
         <FormContent>
-          <Form action="#">
-            <FormH1>Hesabınıza giriş yapın</FormH1>
+          <Form>
+            {hasAccount ?
+              <FormH1>Hesabınıza Giriş Yapın </FormH1>:<FormH1>Daha iyi bir deneyim için kayıt olun</FormH1>
+
+            }
+            
+            { !hasAccount ?
+              <>
+              <FormLabel htmlFor="for">Ad-Soyad</FormLabel>
+              <FormInput 
+              type="name"
+              required
+              autoFocus 
+              value={userName}
+              onChange={(e) => setUserName(e.target.value)}
+            />
+             </> 
+            : ''
+            }
             <FormLabel htmlFor="for">Email</FormLabel>
-            <FormInput type="email" required />
+            <FormInput 
+              type="email"
+              required
+              autoFocus 
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+              <Text style={{marginTop: '-20px'}}>{emailError}</Text>
             <FormLabel htmlFor="for" required>
               Password
             </FormLabel>
-            <FormInput type="password" required />
-            <FormButton type="submit">Devam Et</FormButton>
-            <Text>Forgot password ?</Text>
+            <FormInput 
+              type="password"
+              required
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+              <Text style={{marginTop: '-20px', marginBottom: '10px'}}>{passwordError}</Text>
+            {hasAccount ? (
+              <>
+              <FormButton onClick={handleLogin}>Giriş Yap</FormButton>
+              <Text>Hesabınız yok mu ? <span onClick={() => setHesAccount(!hasAccount)} style={{color:'yellow', cursor: 'pointer'}} >Kayıt Ol</span></Text>
+              </>
+            ) :  (
+              <>
+              <FormButton onClick={handleSignup}>Kayıt Ol</FormButton>
+              <Text>Hesabınız var mı ? <span onClick={() => setHesAccount(!hasAccount)} style={{color:'yellow', cursor: 'pointer',}} >Giriş Yap</span></Text>
+              </>
+            )
+
+              
+            }
           </Form>
+          
         </FormContent>
       </FormWrap>
     </Container>

@@ -18,12 +18,12 @@ export const Container = styled.div`
 `;
 
 export const FormWrap = styled.div`
-  height: 90%;
+  height: '90%';
   display: flex;
   flex-direction: column;
   justify-content: center;
   @media screen and (max-width: 400px) {
-    height: 80%;
+    height: '80%';
   } ;
 `;
 export const Icon = styled(Link)`
@@ -55,6 +55,7 @@ export const FormContent = styled.div`
 
 export const Form = styled.form`
   background: #010101;
+  
   max-width: 400px;
   height: auto;
   width: 100%;

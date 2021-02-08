@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { FaBars } from "react-icons/fa";
 import { animateScroll as scroll } from "react-scroll";
+import fire from '../../fire';
 import {
   Nav,
   NavbarContainer,
@@ -13,9 +14,10 @@ import {
   NavBtnLink,
 } from "./NavbarElements";
 import { IconContext } from "react-icons/lib";
+import { UserContext } from '../../UserContext';
 const Navbar = ({ toggle }) => {
   const [scrollNav, setScrollNav] = useState(false);
-
+  const {user, setUser} = useContext(UserContext);
   const changeNav = () => {
     if (window.scrollY >= 80) {
       setScrollNav(true);
@@ -29,7 +31,22 @@ const Navbar = ({ toggle }) => {
   const toggleHome = () => {
     scroll.scrollToTop();
   };
-
+  const handleLogout = () => {
+    fire.auth().signOut();
+  }
+  const authListener = () => {
+    fire.auth().onAuthStateChanged(user => {
+      if(user) {
+        setUser(user);
+      } else {
+        setUser('');
+      }
+    })
+  }
+  useEffect(() => {
+    authListener();
+    console.log(user);
+  }, [])
   return (
     <>
       <IconContext.Provider value={{ color: "#fff" }}>
@@ -91,8 +108,9 @@ const Navbar = ({ toggle }) => {
                 </NavLinks>
               </NavItem>
             </NavMenu>
-            <NavBtn>
+            <NavBtn>{user ? <NavBtnLink to="/" onClick={handleLogout}>Çıkış Yap</NavBtnLink>: 
               <NavBtnLink to="/signin">Giriş Yap</NavBtnLink>
+              }
             </NavBtn>
           </NavbarContainer>
         </Nav>
