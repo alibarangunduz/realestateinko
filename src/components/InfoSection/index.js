@@ -1,4 +1,4 @@
-/*import React from 'react'
+import React from 'react'
 import { Button } from 'react-scroll';
 import {InfoContainer, InfoWrapper, InfoRow, Column1, Column2, TextWrapper, TopLine, Heading, Subtitle, BtnWrap, ImgWrap, Img} from './InfoElements'
 const InfoSection = () => {
@@ -11,7 +11,7 @@ const InfoSection = () => {
                     <TextWrapper>
                         <TopLine>Topline</TopLine>
                         <Heading>Heading</Heading>
-                        <Subtitle>Subtitle</Subtitle>
+                        <Subtitle>Subtitlesss</Subtitle>
                         <BtnWrap>
                             <Button to='home'>Button</Button>
                         </BtnWrap>
@@ -30,4 +30,3 @@ const InfoSection = () => {
 }
 
 export default InfoSection
-*/
