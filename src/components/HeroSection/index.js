@@ -29,7 +29,7 @@ const HeroElements = () => {
         <HeroP>Hayallerinizi gerçekleştirelim</HeroP>
         <HeroBtnWrapper>
           <Button
-            to="services"
+            to='property'
             onMouseEnter={onHover}
             onMouseLeave={onHover}
             primary="true"

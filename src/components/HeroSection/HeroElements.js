@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import {MdKeyboardArrowRight, MdArrowForward} from 'react-icons/md'
 
 export const HeroContainer = styled.div`
-    background: #0c0c0c;
+    background: #e6f2ff;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -37,7 +37,7 @@ export const VideoBg = styled.video`
     height: 100%;
     -o-object-fit: cover;
     object-fit: cover;
-    background-color: #232a34;
+    background-color: #99caff;
 `
 export const HeroContent = styled.div`
     z-index: 3;

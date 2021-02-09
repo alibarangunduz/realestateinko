@@ -1,5 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
-import fire from '../../fire';
+import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
+import fire, {auth} from '../../fire';
+
+
 import {
   Container,
   FormWrap,
@@ -15,6 +18,7 @@ import {
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import { useHistory } from "react-router-dom";
 import { UserContext } from '../../UserContext';
+import { FaFacebook, FaGoogle } from "react-icons/fa";
 
 
 const SignIn = () => {
@@ -80,6 +84,23 @@ const SignIn = () => {
             } 
           });
   }
+  const googleSignIn = () => {
+    const provider = new fire.auth.GoogleAuthProvider();
+    fire.auth
+    .signInWithPopup(provider)
+    .then((result) => {
+      /** @type {firebase.auth.OAuthCredential} */
+      var credential = result.credential;
+
+      // This gives you a Google Access Token. You can use it to access the Google API.
+      var token = credential.accessToken;
+      // The signed-in user info.
+      var user = result.user;
+      // ...
+    }).catch((error) => {
+      console.log(error);
+    });
+    }
 
   useEffect(() => {
     fire.auth().signOut();
@@ -91,7 +112,7 @@ const SignIn = () => {
     <Container>
       <FormWrap hasAccount={hasAccount}>
         <Icon to="/">
-          <ArrowBackIcon fontSize="large" />
+          
         </Icon>
         <FormContent>
           <Form>
@@ -143,9 +164,11 @@ const SignIn = () => {
               <Text>Hesabınız var mı ? <span onClick={() => setHesAccount(!hasAccount)} style={{color:'yellow', cursor: 'pointer',}} >Giriş Yap</span></Text>
               </>
             )
-
+            
               
             }
+            <Text>Google ile giriş yapın<FaGoogle onClick={googleSignIn} style={{cursor: 'pointer', fontSize: '24px', marginLeft: '15px'}}/></Text>
+            <Text style={{color: 'yellow'}}>Inko AS Admin <SupervisorAccountIcon style={{marginLeft: '10px', cursor: 'pointer'}}/></Text>
           </Form>
           
         </FormContent>
