@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
-
+import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import InputLabel from "@material-ui/core/InputLabel";
+import MenuItem from "@material-ui/core/MenuItem";
+import FormControl from "@material-ui/core/FormControl";
+import Select from "@material-ui/core/Select";
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
@@ -16,9 +15,15 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SimpleSelect({emlakTipi, setEmlakTipi, satilik, setSatilik, daire, setDaire}) {
+export default function SimpleSelect({
+  emlakTipi,
+  setEmlakTipi,
+  satilik,
+  setSatilik,
+  daire,
+  setDaire,
+}) {
   const classes = useStyles();
- 
 
   const handleEmlakTipi = (event) => {
     setEmlakTipi(event.target.value);
@@ -30,10 +35,8 @@ export default function SimpleSelect({emlakTipi, setEmlakTipi, satilik, setSatil
     setDaire(event.target.value);
   };
 
-  
   return (
     <div>
-      
       <FormControl className={classes.formControl}>
         <InputLabel id="mulkTipiLabel">Mulk Tipi</InputLabel>
         <Select
@@ -42,12 +45,12 @@ export default function SimpleSelect({emlakTipi, setEmlakTipi, satilik, setSatil
           value={emlakTipi}
           onChange={handleEmlakTipi}
         >
-          <MenuItem value={'Konut'}>Konut</MenuItem>
-          <MenuItem value={'Isyeri'}>Isyeri</MenuItem>
-          <MenuItem value={'Arsa'}>Arsa</MenuItem>
-          <MenuItem value={'Bina'}>Bina</MenuItem>
-          <MenuItem value={'DevreMulk'}>DevreMulk</MenuItem>
-          <MenuItem value={'TuristikTesis'}>TuristikTesis</MenuItem>
+          <MenuItem value={"Konut"}>Konut</MenuItem>
+          <MenuItem value={"Isyeri"}>Isyeri</MenuItem>
+          <MenuItem value={"Arsa"}>Arsa</MenuItem>
+          <MenuItem value={"Bina"}>Bina</MenuItem>
+          <MenuItem value={"DevreMulk"}>DevreMulk</MenuItem>
+          <MenuItem value={"TuristikTesis"}>TuristikTesis</MenuItem>
         </Select>
       </FormControl>
       <FormControl className={classes.formControl}>
@@ -58,9 +61,9 @@ export default function SimpleSelect({emlakTipi, setEmlakTipi, satilik, setSatil
           value={satilik}
           onChange={handleSatilikTipi}
         >
-          <MenuItem value={'Satilik'}>Satılık</MenuItem>
-          <MenuItem value={'Kiralik'}>Kiralık</MenuItem>
-          <MenuItem value={'DevrenSatilikKonut'}>Devren Satılık Konut</MenuItem>
+          <MenuItem value={"Satilik"}>Satılık</MenuItem>
+          <MenuItem value={"Kiralik"}>Kiralık</MenuItem>
+          <MenuItem value={"DevrenSatilikKonut"}>Devren Satılık Konut</MenuItem>
         </Select>
       </FormControl>
       <FormControl className={classes.formControl}>
@@ -71,18 +74,18 @@ export default function SimpleSelect({emlakTipi, setEmlakTipi, satilik, setSatil
           value={daire}
           onChange={handleDaireTipi}
         >
-          <MenuItem value={'Konut'}>Konut</MenuItem>
-          <MenuItem value={'Residance'}>Residance</MenuItem>
-          <MenuItem value={'MustakilEv'}>Mustakil Ev</MenuItem>
-          <MenuItem value={'Villa'}>Villa</MenuItem>
-          <MenuItem value={'CiftlikEvi'}>Çiftlik Evi</MenuItem>
-          <MenuItem value={'KoskKonak'}>Köşk veya Konak</MenuItem>
-          <MenuItem value={'Yali'}>Yali</MenuItem>
-          <MenuItem value={'YaliDairesi'}>YaliDairesi</MenuItem>
-          <MenuItem value={'Arsa'}>Arsa</MenuItem>
-          <MenuItem value={'Yazlik'}>Yazlik</MenuItem>
-          <MenuItem value={'PrefabrikEv'}>Prefabrik Ev</MenuItem>
-          <MenuItem value={'Kooperatif'}>Kooperatif</MenuItem>
+          <MenuItem value={"Konut"}>Konut</MenuItem>
+          <MenuItem value={"Residance"}>Residance</MenuItem>
+          <MenuItem value={"MustakilEv"}>Mustakil Ev</MenuItem>
+          <MenuItem value={"Villa"}>Villa</MenuItem>
+          <MenuItem value={"CiftlikEvi"}>Çiftlik Evi</MenuItem>
+          <MenuItem value={"KoskKonak"}>Köşk veya Konak</MenuItem>
+          <MenuItem value={"Yali"}>Yali</MenuItem>
+          <MenuItem value={"YaliDairesi"}>YaliDairesi</MenuItem>
+          <MenuItem value={"Arsa"}>Arsa</MenuItem>
+          <MenuItem value={"Yazlik"}>Yazlik</MenuItem>
+          <MenuItem value={"PrefabrikEv"}>Prefabrik Ev</MenuItem>
+          <MenuItem value={"Kooperatif"}>Kooperatif</MenuItem>
         </Select>
       </FormControl>
     </div>
