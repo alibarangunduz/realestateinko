@@ -9,6 +9,7 @@ import { AdminContainer } from "./AdminElements";
 import BuldingAge from "./buildingAge";
 import FloorLocation from "./floorLocation";
 import NumberOfFloors from "./numberOfFloors";
+import { Button } from "../ButtonElement";
 
 const Admin = () => {
   const [emlakTipi, setEmlakTipi] = useState("");
@@ -23,7 +24,16 @@ const Admin = () => {
   const [BuildingAge, setBuildingAge] = useState("");
   const [floorLocaiton, setFloorLocation] = useState("");
   const [numberOfFloors, setNumberOfFloors] = useState("");
-  console.log(floorLocaiton);
+
+  const checkKategori = () => {
+    if ((emlakTipi === "Arsa" || emlakTipi === "Bina") && satilik !== "") {
+      return <Button>Kategori Tamamlanmistir</Button>;
+    }
+    if (emlakTipi !== "" && satilik !== "" && daire !== "") {
+      return <Button>Kategori Tamamlanmistir</Button>;
+    }
+  };
+  console.log(daire);
   return (
     <AdminContainer style={{ padding: "10px" }}>
       <h1>Kategori Secimi</h1>
@@ -35,6 +45,7 @@ const Admin = () => {
         setDaire={setDaire}
         daire={daire}
       />
+      {checkKategori()}
       <h1>Ilan Detaylari</h1>
       <BasicTextFields title={title} setTitle={setTitle} />
       <MultilineTextFields
@@ -71,7 +82,7 @@ const Admin = () => {
         label="roomNumberLabel"
         roomNumber={roomNumber}
         setRoomNumber={setRoomNumber}
-        labelName="Oda Numarası"
+        labelName="Oda Sayısı"
       />
       <FloorLocation
         id="FloorLocaiton"
