@@ -32,6 +32,7 @@ export default function NumberOfFloors({
     for (var i = 0; i <= 30; i++) {
       menuItems.push(i);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

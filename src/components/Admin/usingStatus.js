@@ -15,18 +15,18 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Province({
+export default function UsingStatus({
   id,
   labelId,
   label,
-  province,
-  setProvince,
+  usingstatus,
+  setUsingStatus,
   labelName,
 }) {
   const classes = useStyles();
 
-  const handleProvince = (event) => {
-    setProvince(event.target.value);
+  const handleUsingstatus = (event) => {
+    setUsingStatus(event.target.value);
   };
 
   return (
@@ -36,13 +36,14 @@ export default function Province({
         <Select
           labelId={labelId}
           id={id}
-          value={province}
-          onChange={handleProvince}
+          value={usingstatus}
+          onChange={handleUsingstatus}
           label={label}
         >
-          <MenuItem value={"Bursa, Turkey"}>Bursa</MenuItem>
-          <MenuItem value={"İstabul"}>İstabul</MenuItem>
-          <MenuItem value={"Yalova"}>Yalova</MenuItem>
+          <MenuItem value={"Boş"}>Boş</MenuItem>
+          <MenuItem value={"Kiracılı"}>Kiracılı</MenuItem>
+          <MenuItem value={"Kiracılı"}>Kiracılı</MenuItem>
+          <MenuItem value={"Mülk Sahibi"}>Mülk Sahibi</MenuItem>
         </Select>
       </FormControl>
     </div>

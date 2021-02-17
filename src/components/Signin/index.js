@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import SupervisorAccountIcon from "@material-ui/icons/SupervisorAccount";
-import fire, { auth } from "../../fire";
+import { fire, auth } from "../../firebase";
 
 import {
   Container,

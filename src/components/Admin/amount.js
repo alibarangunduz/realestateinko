@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Input from "@material-ui/core/Input";
 import InputLabel from "@material-ui/core/InputLabel";
@@ -31,10 +31,6 @@ export default function InputAdornments({
 }) {
   const classes = useStyles();
 
-  const handleAmount = (event) => {
-    setAmount(event.target.value);
-  };
-
   return (
     <div className={classes.root}>
       <div>
@@ -43,7 +39,9 @@ export default function InputAdornments({
           <Input
             id={id}
             value={amount}
-            onChange={handleAmount}
+            onChange={(event) =>
+              setAmount(event.target.value.replace(/\D/, ""))
+            }
             startAdornment={
               <InputAdornment position="start">{subtitle}</InputAdornment>
             }
