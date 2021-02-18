@@ -1,7 +1,8 @@
-import React, { useState, useEffect, useContext } from "react";
+import React from "react";
 import { FaBars } from "react-icons/fa";
+import { IconContext } from "react-icons/lib";
 import { animateScroll as scroll } from "react-scroll";
-import { fire } from "../../firebase";
+
 import {
   Nav,
   NavbarContainer,
@@ -13,46 +14,19 @@ import {
   NavBtn,
   NavBtnLink,
 } from "./NavbarElements";
-import { IconContext } from "react-icons/lib";
-import { UserContext } from "../../UserContext";
+
 const Navbar = ({ toggle }) => {
-  const [scrollNav, setScrollNav] = useState(false);
-  const { user, setUser } = useContext(UserContext);
-  const changeNav = () => {
-    if (window.scrollY >= 80) {
-      setScrollNav(true);
-    } else {
-      setScrollNav(false);
-    }
-  };
-  useEffect(() => {
-    window.addEventListener("scroll", changeNav);
-  }, []);
   const toggleHome = () => {
     scroll.scrollToTop();
   };
-  const handleLogout = () => {
-    fire.auth().signOut();
-  };
-  const authListener = () => {
-    fire.auth().onAuthStateChanged((user) => {
-      if (user) {
-        setUser(user);
-      } else {
-        setUser("");
-      }
-    });
-  };
-  useEffect(() => {
-    authListener();
-  }, []);
+
   return (
     <>
       <IconContext.Provider value={{ color: "#fff" }}>
-        <Nav style={{ background: scrollNav ? "#000" : "#1a1a1a" }}>
+        <Nav>
           <NavbarContainer>
-            <NavLogo to="/" onClick={toggleHome}>
-              İNKO AŞ
+            <NavLogo to="/inkoadmin" onClick={toggleHome}>
+              İNKO Admin
             </NavLogo>
             <MobileIcon onClick={toggle}>
               <FaBars />
@@ -60,61 +34,55 @@ const Navbar = ({ toggle }) => {
             <NavMenu>
               <NavItem>
                 <NavLinks
-                  to="about"
+                  to="/inkoadmin/ilanver"
                   smooth={true}
                   duration={500}
                   spy={true}
                   exact="true"
                   offset={-80}
                 >
-                  Hakkında
+                  Ilan Ver
                 </NavLinks>
               </NavItem>
               <NavItem>
                 <NavLinks
-                  to="discover"
+                  to="/ilanlarim"
                   smooth={true}
                   duration={500}
                   spy={true}
                   exact="true"
                   offset={-80}
                 >
-                  Kesfet
+                  Ilanlarım
                 </NavLinks>
               </NavItem>
               <NavItem>
                 <NavLinks
-                  to="services"
+                  to="/gelenkutusu"
                   smooth={true}
                   duration={500}
                   spy={true}
                   exact="true"
                   offset={-80}
                 >
-                  Hizmetler
+                  Mesajlar
                 </NavLinks>
               </NavItem>
               <NavItem>
                 <NavLinks
-                  to="signup"
+                  to="/analiz"
                   smooth={true}
                   duration={500}
                   spy={true}
                   exact="true"
                   offset={-80}
                 >
-                  Kayıt Ol
+                  Favorilerim
                 </NavLinks>
               </NavItem>
             </NavMenu>
             <NavBtn>
-              {user ? (
-                <NavBtnLink to="/" onClick={handleLogout}>
-                  Çıkış Yap
-                </NavBtnLink>
-              ) : (
-                <NavBtnLink to="/signin">Giriş Yap</NavBtnLink>
-              )}
+              <NavBtnLink to="/">Çıkış Yap</NavBtnLink>
             </NavBtn>
           </NavbarContainer>
         </Nav>

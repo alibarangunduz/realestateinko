@@ -1,8 +1,8 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-export const AdminContainer = styled.div`
-  
-  @media screen and (max-width: 475px) {
-    width: 50%;
-  }
+export const AdminContainer = styled.div``;
+
+export const InnerContainer = styled.div`
+  justify-content: center;
+  align-items: center;
 `;
