@@ -34,7 +34,7 @@ const Navbar = ({ toggle }) => {
             <NavMenu>
               <NavItem>
                 <NavLinks
-                  to="/inkoadmin/ilanver"
+                  to="/inkoadmin/kategorisec"
                   smooth={true}
                   duration={500}
                   spy={true}

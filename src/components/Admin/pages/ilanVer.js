@@ -27,10 +27,8 @@ import Cephe from "../cephe";
 import IcOzellikler from "../icOzellikler";
 
 const IlanVer = () => {
-  //kategori secimi
-  const [emlakTipi, setEmlakTipi] = useState("");
-  const [satilik, setSatilik] = useState("");
-  const [daire, setDaire] = useState("");
+  
+
   //bilgiler
   const [title, setTitle] = useState("");
   const [explanation, setExplanation] = useState("");
@@ -580,14 +578,7 @@ const IlanVer = () => {
           renderText={(value) => <div>{value}</div>}
         />
         <h1>Kategori Secimi</h1>
-        <SimpleSelect
-          emlakTipi={emlakTipi}
-          setEmlakTipi={setEmlakTipi}
-          satilik={satilik}
-          setSatilik={setSatilik}
-          setDaire={setDaire}
-          daire={daire}
-        />
+      
         {checkKategori()}
         <h1>Ilan Detaylari</h1>
 

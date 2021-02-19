@@ -6,7 +6,7 @@ import SigninPage from "./pages/signin";
 import { UserContext } from "./UserContext";
 import Property from "./pages/property";
 import AdminPage from "./pages/adminpage";
-import IlanVer from "./components/Admin/pages/ilanVer";
+import KategoriSec from "./components/Admin/pages/kategoriSec";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -20,7 +20,7 @@ function App() {
           <Route path="/signin" component={SigninPage} exact />
           <Route path="/property" component={Property} exact />
           <Route path="/inkoadmin" component={AdminPage} exact />
-          <Route path="/inkoadmin/ilanver" component={IlanVer} exact />
+          <Route path="/inkoadmin/kategorisec" component={KategoriSec} exact />
         </Switch>
       </UserContext.Provider>
     </Router>
