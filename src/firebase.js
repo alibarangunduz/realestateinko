@@ -3,7 +3,7 @@ import "firebase/auth";
 import "firebase/storage";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCVGQEKU-O4NI0gwliD47ks-E_UT62TZHQ",
+  apiKey: "",
   authDomain: "realestate-fbe82.firebaseapp.com",
   projectId: "realestate-fbe82",
   storageBucket: "realestate-fbe82.appspot.com",
